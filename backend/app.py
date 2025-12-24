@@ -3,7 +3,7 @@ from collector import collect_processes
 from detector import AnomalyDetector
 from prophet import Prophet
 from monitor import ResourceMonitor
-
+import pandas as pd
 
 app = Flask(__name__)
 detector = AnomalyDetector()
