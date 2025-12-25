@@ -252,7 +252,7 @@ class ProcessClassifier:
                 time.sleep(interval)
 
         except KeyboardInterrupt:
-            print("\n🛑 监控已停止")
+            print("\n 监控已停止")
 
     def display_monitoring_stats(self, results, iteration, timestamp):
         """显示监控统计信息"""
@@ -262,11 +262,12 @@ class ProcessClassifier:
             category = result['category']
             category_counts[category] = category_counts.get(category, 0) + 1
 
-        print(f"\n📊 监控轮次 #{iteration} - {time.strftime('%H:%M:%S', time.localtime(timestamp))}")
+        print(f"\n 监控轮次 #{iteration} - {time.strftime('%H:%M:%S', time.localtime(timestamp))}")
         print(f"进程总数: {len(results)}")
 
         # 显示前5个最常见的类别
         print("主要类别分布:")
         for category, count in sorted(category_counts.items(), key=lambda x: x[1], reverse=True)[:5]:
             percentage = (count / len(results)) * 100
+
             print(f"  {category:<20}: {count:3} ({percentage:.1f}%)")
